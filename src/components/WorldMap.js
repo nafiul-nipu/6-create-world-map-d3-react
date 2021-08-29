@@ -1,6 +1,6 @@
 import { curveNatural, line } from "d3";
 
-export const LinePlot = ({
+export const WorlMap = ({
     data, 
     xScale, 
     yScale, 
