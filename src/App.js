@@ -1,7 +1,7 @@
 import './App.css';
 
 import { useData } from './components/useData';
-import { LinePlot } from './components/LinePlot';
+import { WorldMap } from './components/WorldMap';
 
 const width = 960;
 const height = 500;
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <svg width={width} height={height}>      
-      <WorlMap 
+      <WorldMap 
         data={data}
       />
     </svg>

@@ -1,29 +1,31 @@
-import { curveNatural, line } from "d3";
+import { geoNaturalEarth1, geoPath, geoGraticule } from "d3";
 
-export const WorlMap = ({
-    data, 
-    xScale, 
-    yScale, 
-    xValue, 
-    yValue, 
-    tooltipFormat, 
-    radius}) => (
+const projection = geoNaturalEarth1()
+const path = geoPath(projection)
+const graticule = geoGraticule()
+
+export const WorldMap = ({data : {land, interiors}}) => (
         <g className='mark'> 
             <path 
-                d={line()
-                    .x(d=>xScale(xValue(d)))
-                    .y(d=>yScale(yValue(d)))
-                    .curve(curveNatural)
-                    (data)}
+                className='sphere'
+                d={path({type: 'Sphere'})}
             />
-            {/* {data.map(d => 
-                <circle                     
-                    cx={xScale(xValue(d))}
-                    cy={yScale(yValue(d))}
-                    r={radius}
-                >
-                    <title>{tooltipFormat(xValue(d))}</title>
-                </circle>
-            )} */}
+
+            <path 
+                className='graticules'
+                d={path(graticule())}
+            />
+
+            {land.features.map(feature => 
+                <path 
+                    className='land'
+                    d={path(feature)}
+                />
+            )}
+            <path 
+                className='interiors'
+                d={path(interiors)}
+            />
+           
         </g>
     );
