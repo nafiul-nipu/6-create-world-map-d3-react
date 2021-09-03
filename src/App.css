@@ -4,19 +4,24 @@
 
 
 .mark .land{
-  fill:#137B80;
+  fill:#ececec;
 }
 
 .mark .sphere{
-  fill: #eceeec;
+  fill: #fbfbfb;
 }
 
 .mark .interiors{
   fill:none;
-  stroke: #339498;
+  stroke: #d9dfe0;
 }
 
 .mark .graticules{
   fill:none;
-  stroke: #dadada;
+  stroke: #ececec;
+}
+
+circle{
+  fill: #137b80;
+  opacity: 0.3;
 }
