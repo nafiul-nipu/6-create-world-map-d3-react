@@ -6,7 +6,10 @@ const graticule = geoGraticule()
 
 export const WorldMap = ({
     worldAtlas : {land, interiors},
-    cities }) => (
+    cities,
+    sizeScale,
+    sizeValue
+}) => (
         <g className='mark'> 
             <path 
                 className='sphere'
@@ -32,7 +35,7 @@ export const WorldMap = ({
             {cities.map(d => {
                 const [x, y] = projection([d.lng, d.lat])
 
-                return <circle cx={x} cy={y} r={1}/>
+                return <circle cx={x} cy={y} r={sizeScale(sizeValue(d))}/>
             })}
            
         </g>
